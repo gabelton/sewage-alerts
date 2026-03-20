@@ -1,5 +1,0 @@
-lookback_hours: 24
-recipients:
-  - postcode: "GL5 1HE"
-    radius_km: 45
-    notify_email: "seb.bacon@gmail.com"
