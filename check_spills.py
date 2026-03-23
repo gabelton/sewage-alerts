@@ -256,8 +256,8 @@ def send_email(
     msg["Subject"] = subject
     msg["From"] = from_addr
     msg["To"] = to_addr
-    msg.attach(MIMEText(text, "plain"))
-    msg.attach(MIMEText(html, "html"))
+    msg.attach(MIMEText(text, "plain", "utf-8"))
+    msg.attach(MIMEText(html, "html", "utf-8"))
     try:
         log("Connecting to smtp.gmail.com:465")
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
