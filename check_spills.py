@@ -267,6 +267,8 @@ def send_email(
             server.sendmail(from_addr, to_addr, msg.as_bytes())
             log("sendmail() returned without error")
     except Exception as exc:
+        import traceback
+        traceback.print_exc()
         print(f"ERROR: Could not send email: {exc}", file=sys.stderr)
         sys.exit(1)
 
