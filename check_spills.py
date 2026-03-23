@@ -256,8 +256,8 @@ def send_email(
     msg["Subject"] = subject
     msg["From"] = from_addr
     msg["To"] = to_addr
-    msg.attach(MIMEText(text, "plain", "utf-8"))
-    msg.attach(MIMEText(html, "html", "utf-8"))
+    msg.attach(MIMEText(text, "plain"))
+    msg.attach(MIMEText(html, "html"))
     try:
         log("Connecting to smtp.gmail.com:465")
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
@@ -267,8 +267,6 @@ def send_email(
             server.sendmail(from_addr, to_addr, msg.as_bytes())
             log("sendmail() returned without error")
     except Exception as exc:
-        import traceback
-        traceback.print_exc()
         print(f"ERROR: Could not send email: {exc}", file=sys.stderr)
         sys.exit(1)
 
