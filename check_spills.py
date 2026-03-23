@@ -264,7 +264,7 @@ def send_email(
             log(f"Logging in as {from_addr}")
             server.login(from_addr, password)
             log("Login successful, sending message")
-            server.sendmail(from_addr, to_addr, msg.as_string())
+            server.sendmail(from_addr, to_addr, msg.as_bytes())
             log("sendmail() returned without error")
     except Exception as exc:
         print(f"ERROR: Could not send email: {exc}", file=sys.stderr)
