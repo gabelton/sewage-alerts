@@ -19,7 +19,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Check for nearby spills
-        run: python check_spills.py --postcode "$POSTCODE" --email $GMAIL_ADDRESS --radius 10
+        run: python check_spills.py --postcode "$POSTCODE" --email "$GMAIL_ADDRESS" --radius 10
         env:
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
